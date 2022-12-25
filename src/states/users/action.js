@@ -1,7 +1,3 @@
-/**
- * @TODO: Define all the actions (creator) for the users state
- */
-
 import api from '../../utils/api';
 
 const ActionType = {
