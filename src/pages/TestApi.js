@@ -1,7 +1,7 @@
 import React from 'react';
 import api from '../utils/api';
 
-function HomePage() {
+function TestApi() {
   const onLogin = () => {
     api.login({ email: 'majid@gmail.com', password: 'qwer1234' })
       .then((token) => {
@@ -79,4 +79,4 @@ function HomePage() {
     </>
   );
 }
-export default HomePage;
+export default TestApi;
