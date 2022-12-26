@@ -103,6 +103,7 @@ body {
 
 .navigation nav {
   flex: 1;
+  display: flex;
   gap: 15px;
 }
 
