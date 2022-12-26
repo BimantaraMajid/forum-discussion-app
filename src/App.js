@@ -6,6 +6,9 @@ import LoginPage from './pages/LoginPage';
 import Loading from './components/Loading';
 import RegisterPage from './pages/RegisterPage';
 import { asyncPreloadProcess } from './states/isPreload/action';
+import HomePage from './pages/HomePage';
+import Navigation from './components/Navigation';
+import { asyncUnsetAuthUser } from './states/authUser/action';
 
 function App() {
   const {
@@ -18,18 +21,44 @@ function App() {
     dispatch(asyncPreloadProcess());
   }, [dispatch]);
 
-  console.log(authUser, isPreload);
+  const onSignOut = () => {
+    dispatch(asyncUnsetAuthUser());
+  };
+
+  if (isPreload) {
+    return null;
+  }
+
+  if (authUser === null) {
+    return (
+      <>
+        <Loading />
+        <main>
+          <Routes>
+            <Route path="/*" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/api-test" element={<TestApi />} />
+          </Routes>
+        </main>
+      </>
+
+    );
+  }
 
   return (
     <>
       <Loading />
-      <main>
-        <Routes>
-          <Route path="/*" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/api-test" element={<TestApi />} />
-        </Routes>
-      </main>
+      <div className="app-container">
+        <header>
+          <Navigation authUser={authUser} signOut={onSignOut} />
+        </header>
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/api-test" element={<TestApi />} />
+          </Routes>
+        </main>
+      </div>
     </>
   );
 }
