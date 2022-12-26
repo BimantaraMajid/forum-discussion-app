@@ -304,3 +304,15 @@ body {
     grid-template-columns: 1.25fr 1fr;
   }
 }
+
+.new-thread-button {
+  background-color: initial;
+  border: 0;
+  bottom: 65px;
+  color: #2d3e50;
+  color: var(--foreground-color);
+  cursor: pointer;
+  font-size: 48px;
+  position: fixed;
+  right: 32px;
+}
