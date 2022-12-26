@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  FaThumbsUp, FaRegThumbsUp, FaThumbsDown, FaRegThumbsDown,
+  FaThumbsUp, FaRegThumbsUp, FaThumbsDown, FaRegThumbsDown, FaRegCommentDots,
 } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { postedAt } from '../utils/formatDate';
@@ -12,7 +12,6 @@ function ThreadItem({
   body,
   category,
   createdAt,
-  ownerId,
   totalComments,
   upVotesBy,
   downVotesBy,
@@ -96,6 +95,12 @@ function ThreadItem({
             )
           }
           <span>
+            <button type="button">
+              <FaRegCommentDots />
+            </button>
+            { totalComments }
+          </span>
+          <span>
             Dibuat Oleh &nbsp;
             <b>{ user.name }</b>
           </span>
@@ -153,7 +158,6 @@ const threadItemShape = {
   body: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   createdAt: PropTypes.string.isRequired,
-  ownerId: PropTypes.string.isRequired,
   totalComments: PropTypes.number.isRequired,
   upVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
   downVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,

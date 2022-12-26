@@ -11,7 +11,6 @@ function ThreadList({
     <div className="threads-list">
       {
         threads.map((thread) => (
-          // <ThreadItem />
           <ThreadItem
             key={thread.id}
             {...thread}
