@@ -58,11 +58,9 @@ function ThreadItem({
       <div className="thread-item__detail">
         <header>
           <div className="thread-item__user-info">
-            <p className="thread-item__title">
-              <div role="button" tabIndex={0} onClick={onThreadClick} onKeyDown={onThreadPress}>
-                { title }
-              </div>
-            </p>
+            <button className="thread-item__title" type="button" onClick={onThreadClick} onKeyDown={onThreadPress}>
+              { title }
+            </button>
             <p className="thread-item__body" dangerouslySetInnerHTML={{ __html: bodySubstring(body) }} />
           </div>
           <p className="thread-item__created-at">{postedAt(createdAt)}</p>
@@ -109,41 +107,6 @@ function ThreadItem({
     </div>
   );
 }
-/* <div className="thread-item__user-photo">
-  <img src={user.photo} alt={user} />
-</div>
-<div className="thread-item__detail">
-  <header>
-    <div className="thread-item__user-info">
-      <p className="thread-item__title">{user.name}</p>
-      <p className="thread-item__body">
-        @
-        {user.id}
-      </p>
-    </div>
-    <p className="thread-item__created-at">{postedAt(createdAt)}</p>
-  </header>
-  <article>
-    <p className="thread-item__tag">{text}</p>
-  </article>
-  {
-    like && (
-      <div className="thread-item__likes">
-        <p>
-          <button type="button" aria-label="like" onClick={onLikeClick}>
-            { isThreadLiked ? <FaHeart style={{ color: 'red' }} /> : <FaRegHeart />}
-          </button>
-          {' '}
-          {likes.length}
-        </p>
-      </div>
-    )
-  }
-</div>
-<div role="button" tabIndex={0} className="thread-item" onClick={onThreadClick}
-onKeyDown={onThreadPress}>
-  go to thread
-</div> */
 
 const userShape = {
   id: PropTypes.string.isRequired,
@@ -176,6 +139,6 @@ ThreadItem.defaultProps = {
   downVotes: null,
 };
 
-export { threadItemShape };
+export { threadItemShape, userShape };
 
 export default ThreadItem;
