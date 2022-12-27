@@ -1,7 +1,3 @@
-/**
- * @TODO: Define the reducer for the threads state
- */
-
 import { ActionType } from './action';
 
 function threadsReducer(threads = [], action = {}) {
