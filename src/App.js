@@ -9,6 +9,7 @@ import { asyncPreloadProcess } from './states/isPreload/action';
 import HomePage from './pages/HomePage';
 import Navigation from './components/Navigation';
 import { asyncUnsetAuthUser } from './states/authUser/action';
+import LeaderboardsPage from './pages/LeaderboardsPage';
 
 function App() {
   const {
@@ -55,6 +56,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/leaderboards" element={<LeaderboardsPage />} />
             <Route path="/api-test" element={<TestApi />} />
           </Routes>
         </main>
