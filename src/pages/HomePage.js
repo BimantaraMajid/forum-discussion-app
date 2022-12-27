@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ButtonAdd from '../components/ButtonAdd';
 import ThreadList from '../components/ThreadList';
+import { receiveTagsActionCreator } from '../states/isFilterTag/action';
 import { asyncPopulateUsersAndThreads } from '../states/shared/action';
 import { asyncDownVoteThread, asyncNeutralVoteThread, asyncUpVoteThread } from '../states/threads/action';
 
@@ -10,17 +11,17 @@ function HomePage() {
     threads = [],
     users = [],
     authUser,
+    isfilter,
   } = useSelector((states) => states);
+  const activeFilter = isfilter
+    .filter((val) => val.isActive === true)
+    .map((val) => val.name);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(asyncPopulateUsersAndThreads());
   }, [dispatch]);
-
-  const onAddThread = (text) => {
-    // dispatch(asyncAddThread({ text }));
-  };
 
   const onUpVotes = (id, currentValue) => {
     dispatch(asyncNeutralVoteThread(id));
@@ -36,15 +37,51 @@ function HomePage() {
     }
   };
 
-  const threadList = threads.map((thread) => ({
+  const onFilterTag = (event) => {
+    const tag = event.target?.value;
+    const tags = (isfilter ?? []).map((val) => {
+      if (val.name === tag) {
+        return {
+          name: val.name,
+          isActive: !val.isActive,
+        };
+      }
+      return val;
+    });
+    dispatch(receiveTagsActionCreator(tags));
+  };
+
+  let threadList = threads.map((thread) => ({
     ...thread,
     user: users.find((user) => user.id === thread.ownerId),
     authUser: authUser.id,
   }));
+  if (activeFilter?.length) {
+    threadList = threadList.filter((thread) => activeFilter.includes(thread.category));
+  }
+
+  const activeClassButton = (isActive) => {
+    if (isActive) return 'category-item selected';
+    return 'category-item';
+  };
 
   return (
     <section className="home-page">
-      {/* <ThreadInput addThread={onAddThread} /> */}
+      <div className="filter-tag-threads">
+        {
+          isfilter.map((tag) => (
+            <button
+              type="button"
+              className={activeClassButton(tag.isActive)}
+              key={tag.name}
+              value={tag.name}
+              onClick={onFilterTag}
+            >
+              {tag.name}
+            </button>
+          ))
+        }
+      </div>
       <ThreadList
         threads={threadList}
         upVotes={onUpVotes}
