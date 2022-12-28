@@ -10,7 +10,7 @@ function RegisterInput({ register }) {
   return (
     <form className="register-input">
       <input type="text" value={name} onChange={onNameChange} placeholder="Name" />
-      <input type="text" value={email} onChange={onEmailChange} placeholder="Username" />
+      <input type="text" value={email} onChange={onEmailChange} placeholder="Email" />
       <input type="password" value={password} onChange={onPasswordChange} placeholder="Password" />
       <button type="button" onClick={() => register({ name, email, password })}>Register</button>
     </form>
