@@ -21,6 +21,7 @@ body {
 .app-container {
   max-width: 800px;
   margin: 0 auto;
+  padding-bottom: 100px;
 }
 
 .loading {
@@ -288,7 +289,7 @@ body {
 }
 
 .thread-detail__text {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .thread-detail footer {
@@ -300,12 +301,13 @@ body {
   flex: 1;
   display: flex;
   gap: 10px;
+  align-items: center;
 }
 
 .thread-detail__like button {
   background-color: transparent;
   border: 0;
-  font-size: 24px;
+  font-size: 17px;
   cursor: pointer;
 }
 
@@ -344,7 +346,7 @@ body {
   padding: 4px 8px;
 }
 
-.category-item.selected{
+.category-item.selected {
   background-color: var(--accent-color);
   color: white;
 }
@@ -353,4 +355,61 @@ body {
   display: flex;
   gap: 5px;
   margin-bottom: 5px;
+}
+
+.comment-item {
+  border-bottom: 1px solid #d1d5db;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 0;
+}
+
+.comment-item__header,
+.comment-item__owner-info {
+  align-items: center;
+  display: flex;
+}
+
+.comment-item__owner-info {
+  flex: 1 1;
+  font-weight: 600;
+  gap: 8px;
+}
+
+.comment-item__header,
+.comment-item__owner-info {
+  align-items: center;
+  display: flex;
+}
+
+.comment-item__owner-info img {
+  border-radius: 50%;
+  width: 35px;
+}
+
+.comment-item footer {
+  display: flex;
+  gap: 10px;
+}
+
+.comment-downvote__button,
+.comment-upvote__button {
+  align-items: center;
+  background-color: initial;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+  gap: 4px;
+}
+.downvote__button,
+.upvote__button {
+  align-items: center;
+  background-color: initial;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  font-size: 20px;
+  gap: 4px;
 }
