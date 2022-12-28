@@ -75,31 +75,31 @@ function ThreadItem({
           {
             upVotes && (
               <span>
-                <button type="button" aria-label="like" onClick={onUpVoteClick}>
+                <button type="button" aria-label="like" onClick={onUpVoteClick} className="comment-upvote__button">
                   {isThreadUpVote ? <FaThumbsUp style={{ color: 'black' }} /> : <FaRegThumbsUp />}
+                  {upVotesBy.length}
                 </button>
-                {upVotesBy.length}
               </span>
             )
           }
           {
             downVotes && (
               <span>
-                <button type="button" aria-label="like" onClick={onDownVoteClick}>
+                <button type="button" aria-label="like" onClick={onDownVoteClick} className="comment-downvote__button">
                   {isThreadDownVote ? <FaThumbsDown style={{ color: 'black' }} /> : <FaRegThumbsDown />}
+                  {downVotesBy.length}
                 </button>
-                {downVotesBy.length}
               </span>
             )
           }
           <span>
-            <button type="button">
+            <button type="button" className="comment-upvote__button">
               <FaRegCommentDots />
+              { totalComments }
             </button>
-            { totalComments }
           </span>
           <span>
-            Dibuat Oleh &nbsp;
+            Created By &nbsp;
             <b>{ user.name }</b>
           </span>
         </div>
