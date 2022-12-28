@@ -10,7 +10,6 @@ function ThreadReplyInput({ replyThread }) {
     if (text.trim()) {
       replyThread(text);
       setText('');
-      navigate('/');
     }
   }
 

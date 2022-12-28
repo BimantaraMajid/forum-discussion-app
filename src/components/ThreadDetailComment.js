@@ -35,7 +35,7 @@ function ThreadDetailComment({
       <header className="comment-item__header">
         <div className="comment-item__owner-info">
           <img src={owner.avatar} alt="Dimas Saputra" />
-          <p>Dimas Saputra</p>
+          <p>{owner.name}</p>
         </div>
         <p className="posted-at">{postedAt(createdAt)}</p>
       </header>

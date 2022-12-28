@@ -10,6 +10,7 @@ const ActionType = {
   TOGGLE_UP_VOTE_COMMENT_DETAIL: 'TOGGLE_UP_VOTE_COMMENT_DETAIL',
   TOGGLE_DOWN_VOTE_COMMENT_DETAIL: 'TOGGLE_DOWN_VOTE_COMMENT_DETAIL',
   TOGGLE_NEUTRAL_VOTE_COMMENT_DETAIL: 'TOGGLE_NEUTRAL_VOTE_COMMENT_DETAIL',
+  ADD_THREAD_COMMENT: 'ADD_THREAD_COMMENT',
 };
 
 function receiveThreadDetailActionCreator(threadDetail) {
@@ -17,6 +18,15 @@ function receiveThreadDetailActionCreator(threadDetail) {
     type: ActionType.RECEIVE_THREAD_DETAIL,
     payload: {
       threadDetail,
+    },
+  };
+}
+
+function addThreadCommentActionCreator(comment) {
+  return {
+    type: ActionType.ADD_THREAD_COMMENT,
+    payload: {
+      comment,
     },
   };
 }
@@ -166,6 +176,20 @@ function asyncUpVoteComment(threadId, commentId) {
   };
 }
 
+function asyncCommentThreadDetail(threadId, content) {
+  return async (dispatch) => {
+    dispatch(showLoading());
+
+    try {
+      const response = await api.createComment({ threadId, content });
+      dispatch(addThreadCommentActionCreator(response));
+    } catch (error) {
+      alert(error.message);
+    }
+    dispatch(hideLoading());
+  };
+}
+
 function asyncDownVoteComment(threadId, commentId) {
   return async (dispatch, getState) => {
     const { authUser } = getState();
@@ -209,4 +233,5 @@ export {
   asyncUpVoteComment,
   asyncDownVoteComment,
   asyncNeutralVoteComment,
+  asyncCommentThreadDetail,
 };

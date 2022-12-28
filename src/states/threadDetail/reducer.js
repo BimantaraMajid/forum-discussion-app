@@ -4,6 +4,11 @@ function threadDetailReducer(threadDetail = null, action = {}) {
   switch (action.type) {
     case ActionType.RECEIVE_THREAD_DETAIL:
       return action.payload.threadDetail;
+    case ActionType.ADD_THREAD_COMMENT:
+      return {
+        ...threadDetail,
+        comments: [action.payload.comment].concat(threadDetail.comments),
+      };
     case ActionType.CLEAR_THREAD_DETAIL:
       return null;
     case ActionType.TOGGLE_UP_VOTE_THREAD_DETAIL:

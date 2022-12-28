@@ -5,6 +5,7 @@ import ThreadDetail from '../components/ThreadDetail';
 import ThreadDetailComment from '../components/ThreadDetailComment';
 import ThreadReplyInput from '../components/ThreadReplyInput';
 import {
+  asyncCommentThreadDetail,
   asyncDownVoteComment,
   asyncDownVoteThreadDetail,
   asyncNeutralVoteComment, asyncNeutralVoteThreadDetail,
@@ -24,18 +25,12 @@ function DetailPage() {
     dispatch(asyncReceiveThreadDetail(id));
   }, [id, dispatch]);
 
-  const thread = {
-    ...threadDetail,
-    authUser: authUser.id,
-  };
-
   const onUpVotes = async (currentValue) => {
     if (!currentValue) {
       dispatch(asyncUpVoteThreadDetail(id));
     } else {
       dispatch(asyncNeutralVoteThreadDetail(id));
     }
-    // setRefresh((prevState) => !prevState);
   };
 
   const onDownVotes = (currentValue) => {
@@ -44,7 +39,6 @@ function DetailPage() {
     } else {
       dispatch(asyncNeutralVoteThreadDetail(id));
     }
-    // setRefresh((prevState) => !prevState);
   };
 
   const onUpVotesComment = async (currentValue, commentId) => {
@@ -63,6 +57,10 @@ function DetailPage() {
     }
   };
 
+  const onReplyThread = (content) => {
+    dispatch(asyncCommentThreadDetail(id, content));
+  };
+
   if (!threadDetail) {
     return null;
   }
@@ -71,19 +69,20 @@ function DetailPage() {
     <section className="detail-page">
       <div className="talk-detail">
         <ThreadDetail
-          {...thread}
+          {...threadDetail}
+          authUser={authUser.id}
           upVotes={onUpVotes}
           downVotes={onDownVotes}
         />
-        <ThreadReplyInput replyThread={() => { }} />
+        <ThreadReplyInput replyThread={onReplyThread} />
         <div className="comments-list">
           <h3>
             Comments (
-            {thread.comments.length}
+            {threadDetail?.comments.length}
             )
           </h3>
           {
-            thread.comments?.map((comment) => (
+            threadDetail.comments?.map((comment) => (
               <ThreadDetailComment
                 {...comment}
                 authUser={authUser.id}
