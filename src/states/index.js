@@ -4,6 +4,7 @@ import authUserReducer from './authUser/reducer';
 import isFilterReducer from './isFilterTag/reducer';
 import isPreloadReducer from './isPreload/reducer';
 import leaderboardsReducer from './leaderboards/reducer';
+import threadDetailReducer from './threadDetail/reducer';
 import threadsReducer from './threads/reducer';
 import usersReducer from './users/reducer';
 
@@ -15,6 +16,7 @@ const store = configureStore({
     leaderboards: leaderboardsReducer,
     isfilter: isFilterReducer,
     threads: threadsReducer,
+    threadDetail: threadDetailReducer,
     loadingBar: loadingBarReducer,
   },
 });
