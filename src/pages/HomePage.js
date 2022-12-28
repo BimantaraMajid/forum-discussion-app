@@ -4,9 +4,13 @@ import ButtonAdd from '../components/ButtonAdd';
 import ThreadList from '../components/ThreadList';
 import { receiveTagsActionCreator } from '../states/isFilterTag/action';
 import { asyncPopulateUsersAndThreads } from '../states/shared/action';
-import { asyncDownVoteThread, asyncNeutralVoteThread, asyncUpVoteThread } from '../states/threads/action';
+import {
+  asyncDownVoteThread, asyncNeutralVoteThread,
+  asyncUpVoteThread, neutralVoteThreadActionCreator,
+} from '../states/threads/action';
 
 function HomePage() {
+  const dispatch = useDispatch();
   const {
     threads = [],
     users = [],
@@ -17,23 +21,25 @@ function HomePage() {
     .filter((val) => val.isActive === true)
     .map((val) => val.name);
 
-  const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(asyncPopulateUsersAndThreads());
   }, [dispatch]);
 
   const onUpVotes = (id, currentValue) => {
-    dispatch(asyncNeutralVoteThread(id));
+    dispatch(neutralVoteThreadActionCreator({ id, userId: authUser.id }));
     if (!currentValue) {
       dispatch(asyncUpVoteThread(id));
+    } else {
+      dispatch(asyncNeutralVoteThread(id));
     }
   };
 
   const onDownVotes = (id, currentValue) => {
-    dispatch(asyncNeutralVoteThread(id));
+    dispatch(neutralVoteThreadActionCreator({ id, userId: authUser.id }));
     if (!currentValue) {
       dispatch(asyncDownVoteThread(id));
+    } else {
+      dispatch(asyncNeutralVoteThread(id));
     }
   };
 
