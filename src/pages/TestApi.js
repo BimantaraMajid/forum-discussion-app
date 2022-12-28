@@ -25,33 +25,33 @@ function TestApi() {
     api.getAllThreads();
   };
   const getDetailThread = () => {
-    api.getThreadDetail('thread-79drzbX0HxKPFriC');
+    api.getThreadDetail('thread-B3N9KGa87vfMHyBQ');
   };
   const createComment = () => {
-    api.createComment({ id: 'thread-79drzbX0HxKPFriC', content: 'lorem comment' });
+    api.createComment({ id: 'thread-B3N9KGa87vfMHyBQ', content: 'lorem comment' });
   };
   const getAllLeaderboards = () => {
     api.getAllLeaderboards();
   };
 
-  // "comment--N9Wb7sGwSkNaYNc"
+  // "comment-fJ579RDuAsZdB4ER"
   const upVoteThread = () => {
-    api.upVoteThread('thread-79drzbX0HxKPFriC');
+    api.upVoteThread('thread-B3N9KGa87vfMHyBQ');
   };
   const downVoteThread = () => {
-    api.downVoteThread('thread-79drzbX0HxKPFriC');
+    api.downVoteThread('thread-B3N9KGa87vfMHyBQ');
   };
   const neutralVoteThread = () => {
-    api.neutralVoteThread('thread-79drzbX0HxKPFriC');
+    api.neutralVoteThread('thread-B3N9KGa87vfMHyBQ');
   };
   const upVoteComment = () => {
-    api.upVoteComment('thread-79drzbX0HxKPFriC', 'comment--N9Wb7sGwSkNaYNc');
+    api.upVoteComment('thread-B3N9KGa87vfMHyBQ', 'comment-fJ579RDuAsZdB4ER');
   };
   const downVoteComment = () => {
-    api.downVoteComment('thread-79drzbX0HxKPFriC', 'comment--N9Wb7sGwSkNaYNc');
+    api.downVoteComment('thread-B3N9KGa87vfMHyBQ', 'comment-fJ579RDuAsZdB4ER');
   };
   const neutralVoteComment = () => {
-    api.neutralVoteComment('thread-79drzbX0HxKPFriC', 'comment--N9Wb7sGwSkNaYNc');
+    api.neutralVoteComment('thread-B3N9KGa87vfMHyBQ', 'comment-fJ579RDuAsZdB4ER');
   };
 
   return (
