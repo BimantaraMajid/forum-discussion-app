@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 
 function ThreadReplyInput({ replyThread }) {
   const [text, setText] = useState('');
-  const navigate = useNavigate('/');
 
   function replyThreadHandler() {
     if (text.trim()) {
