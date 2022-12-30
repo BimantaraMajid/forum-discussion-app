@@ -12,6 +12,7 @@ import { asyncUnsetAuthUser } from './states/authUser/action';
 import LeaderboardsPage from './pages/LeaderboardsPage';
 import DetailPage from './pages/DetailPage';
 import CreatePage from './pages/CreatePage';
+import ProfilePage from './pages/ProfilePage';
 
 function App() {
   const {
@@ -61,6 +62,7 @@ function App() {
             <Route path="/leaderboards" element={<LeaderboardsPage />} />
             <Route path="/threads/:id" element={<DetailPage />} />
             <Route path="/thread/create" element={<CreatePage />} />
+            <Route path="/me" element={<ProfilePage />} />
             <Route path="/api-test" element={<TestApi />} />
           </Routes>
         </main>

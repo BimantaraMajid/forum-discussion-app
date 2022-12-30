@@ -404,6 +404,7 @@ body {
   font-size: 16px;
   gap: 4px;
 }
+
 .downvote__button,
 .upvote__button {
   align-items: center;
@@ -413,4 +414,23 @@ body {
   display: flex;
   font-size: 20px;
   gap: 4px;
+}
+
+.profile-page div {
+  text-align: center;
+}
+
+.profile-page>div>.avatar {
+  border-radius: 50%;
+  width: 300px;
+}
+
+.profile-page>div>.name {
+  font-size: 50px;
+  text-transform: capitalize;
+}
+
+.profile-page>div>.email {
+  font-size: 24px;
+  font-size: medium;
 }
