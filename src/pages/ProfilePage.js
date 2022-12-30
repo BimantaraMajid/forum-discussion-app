@@ -6,8 +6,6 @@ function ProfilePage() {
     authUser,
   } = useSelector((states) => states);
 
-  console.log(authUser);
-
   if (!authUser?.id) return null;
 
   return (
