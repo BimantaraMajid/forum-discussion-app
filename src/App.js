@@ -11,6 +11,7 @@ import Navigation from './components/Navigation';
 import { asyncUnsetAuthUser } from './states/authUser/action';
 import LeaderboardsPage from './pages/LeaderboardsPage';
 import DetailPage from './pages/DetailPage';
+import CreatePage from './pages/CreatePage';
 
 function App() {
   const {
@@ -59,6 +60,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/leaderboards" element={<LeaderboardsPage />} />
             <Route path="/threads/:id" element={<DetailPage />} />
+            <Route path="/thread/create" element={<CreatePage />} />
             <Route path="/api-test" element={<TestApi />} />
           </Routes>
         </main>

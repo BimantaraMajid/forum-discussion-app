@@ -61,6 +61,7 @@ body {
   font-size: 48px;
 }
 
+.thread-input input,
 .login-input input,
 .register-input input {
   display: block;
@@ -70,7 +71,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   border-radius: 4px;
-  border: 1px solid var(--gray-dark-color);
+  border: 1px solid var(--gray-light-color);
 }
 
 .login-input button,

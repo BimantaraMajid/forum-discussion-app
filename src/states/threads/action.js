@@ -60,8 +60,7 @@ function asyncAddThread({ title, body, category }) {
   return async (dispatch) => {
     dispatch(showLoading());
     try {
-      const thread = await api.createThread({ title, body, category });
-      dispatch(addThreadActionCreator(thread));
+      await api.createThread({ title, body, category });
     } catch (error) {
       alert(error.message);
     }
