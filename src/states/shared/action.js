@@ -10,7 +10,7 @@ function asyncPopulateUsersAndThreads() {
     try {
       const users = await api.getAllUsers();
       const threads = await api.getAllThreads();
-      let tags = threads.map((val) => val.categorys);
+      let tags = threads.map((val) => val.category);
       tags = [...new Set(tags)];
       tags = tags.map((tag) => ({ name: tag, isActive: false }));
 
