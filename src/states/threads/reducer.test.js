@@ -1,3 +1,13 @@
+/**
+ * skenario test
+ *
+ * - threadReducers function
+ *  - should return the initial state when given by unknown action
+ *  - should return threads when given by RECEIVE_THREADS action
+ *  - should return the threads with the new thread when given by ADD_THREAD action
+ *  - should return the thread with toggle up vote when given by TOGGLE_UP_VOTE_THREAD action
+ */
+
 import {
   addThreadActionCreator, downVoteThreadActionCreator,
   receiveThreadsActionCreator, upVoteThreadActionCreator,
