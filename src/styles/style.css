@@ -29,5 +29,6 @@ main {
 }
 
 a {
+  display: flex;
   align-items: center;
 }

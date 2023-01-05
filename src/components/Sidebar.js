@@ -19,7 +19,7 @@ function Sidebar() {
           to="/"
           active
           color="secondary"
-          className={`d-flex btn text-start border-0 mx-2 my-1 ${isActive('/')} `}
+          className={`btn text-start border-0 mx-2 my-1 ${isActive('/')} `}
         >
           <FaHome size={20} className="me-2" />
           <span>Home</span>
@@ -28,7 +28,7 @@ function Sidebar() {
           to="/leaderboards"
           active
           color="secondary"
-          className={`d-flex btn text-start border-0 mx-2 my-1 ${isActive('/leaderboards')} `}
+          className={`btn text-start border-0 mx-2 my-1 ${isActive('/leaderboards')} `}
         >
           <FaChartLine size={20} className="me-2" />
           Leaderboards
@@ -37,7 +37,7 @@ function Sidebar() {
           to="/me"
           active
           color="secondary"
-          className={`d-flex btn text-start border-0 mx-2 my-1 ${isActive('/me')} `}
+          className={`btn text-start border-0 mx-2 my-1 ${isActive('/me')} `}
         >
           <FaUserAlt size={20} className="me-2" />
           Profile
