@@ -4,3 +4,30 @@
 .align-item-center {
   align-items: center;
 }
+
+.search-input {
+  width: 400px;
+}
+
+.fa {
+  pointer-events: none;
+}
+
+main {
+  padding-top: 65px;
+  padding-left: 200px;
+}
+
+.sidebar {
+  margin-top: 65px;
+  width: 200px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden scroll;
+}
+
+a {
+  align-items: center;
+}
