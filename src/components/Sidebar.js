@@ -8,8 +8,8 @@ function Sidebar() {
   const location = useLocation();
 
   const isActive = (path) => {
-    if (path === location.pathname) return 'btn-primary';
-    return 'btn-outline-primary';
+    if (path === location.pathname) return 'btn-warning';
+    return 'text-black btn-outline-warning';
   };
 
   return (

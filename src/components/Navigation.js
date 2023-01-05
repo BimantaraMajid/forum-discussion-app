@@ -32,7 +32,7 @@ function Navigation({ authUser, signOut }) {
       </NavbarText>
       <NavbarText>
         <Dropdown toggle={toggle} isOpen={dropdownOpen} color="link">
-          <DropdownToggle color="link" className="text-decoration-none text-capitalize">
+          <DropdownToggle color="link" className="text-decoration-none text-black text-capitalize">
             {name}
             <img src={avatar} alt={id} title={name} className="rounded-circle fa ms-1" height={30} />
           </DropdownToggle>
