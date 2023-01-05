@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { Container } from 'reactstrap';
 import LoginPage from './pages/LoginPage';
 import Loading from './components/Loading';
 import RegisterPage from './pages/RegisterPage';
@@ -36,12 +37,12 @@ function App() {
     return (
       <>
         <Loading />
-        <main>
+        <Container fluid className="bg-light">
           <Routes>
             <Route path="/*" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
           </Routes>
-        </main>
+        </Container>
       </>
 
     );

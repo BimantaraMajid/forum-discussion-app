@@ -2,6 +2,9 @@ import React from 'react';
 import { IoChatbox } from 'react-icons/io5';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import {
+  Card, CardBody, Col, Container, Row,
+} from 'reactstrap';
 import LoginInput from '../components/LoginInput';
 import { asyncSetAuthUser } from '../states/authUser/action';
 
@@ -13,27 +16,36 @@ function LoginPage() {
   };
 
   return (
-    <section className="login-page">
-      <header className="login-page__hero">
-        <h1><IoChatbox /></h1>
-      </header>
-      <article className="login-page__main">
-        <h2>
-          Shy &nbsp;
-          <strong>To ASK</strong>
-          ,
-          <br />
-          Lost On The Road.
-        </h2>
-
-        <LoginInput login={onLogin} />
-        <p>
-          Don&apos;t have an account?
-          {' '}
-          <Link to="/register">Register</Link>
-        </p>
-      </article>
-    </section>
+    <Container className="">
+      <Row className="align-item-center min-h-screen">
+        <Col lg="7" className="text-center">
+          <h1 className="text-primary">
+            <IoChatbox size={100} />
+            SocialAsk
+          </h1>
+          <h3>
+            Shy &nbsp;
+            <strong>To ASK</strong>
+            ,
+            <br />
+            Lost On The Road.
+          </h3>
+        </Col>
+        <Col lg="5">
+          <Card key="login card" className="shadow border-0 p-2">
+            <CardBody>
+              <LoginInput login={onLogin} />
+              <hr />
+              <p>
+                Don&apos;t have an account?
+                {' '}
+                <Link to="/register">Register</Link>
+              </p>
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
