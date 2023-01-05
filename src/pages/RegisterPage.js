@@ -1,7 +1,7 @@
 import React from 'react';
 import { IoChatbox } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   Card,
   CardBody,
