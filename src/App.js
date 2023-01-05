@@ -13,6 +13,7 @@ import LeaderboardsPage from './pages/LeaderboardsPage';
 import DetailPage from './pages/DetailPage';
 import CreatePage from './pages/CreatePage';
 import ProfilePage from './pages/ProfilePage';
+import Sidebar from './components/Sidebar';
 
 function App() {
   const {
@@ -51,20 +52,17 @@ function App() {
   return (
     <>
       <Loading />
-      <div className="app-container">
-        <header>
-          <Navigation authUser={authUser} signOut={onSignOut} />
-        </header>
-        <main>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/leaderboards" element={<LeaderboardsPage />} />
-            <Route path="/threads/:id" element={<DetailPage />} />
-            <Route path="/thread/create" element={<CreatePage />} />
-            <Route path="/me" element={<ProfilePage />} />
-          </Routes>
-        </main>
-      </div>
+      <Sidebar />
+      <Navigation authUser={authUser} signOut={onSignOut} />
+      <main className="">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/leaderboards" element={<LeaderboardsPage />} />
+          <Route path="/threads/:id" element={<DetailPage />} />
+          <Route path="/thread/create" element={<CreatePage />} />
+          <Route path="/me" element={<ProfilePage />} />
+        </Routes>
+      </main>
     </>
   );
 }
