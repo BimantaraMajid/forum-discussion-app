@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { IoChatbox } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
@@ -16,7 +16,6 @@ function RegisterPage() {
   const {
     users = [],
   } = useSelector((states) => states);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const onRegister = ({ name, email, password }) => {
