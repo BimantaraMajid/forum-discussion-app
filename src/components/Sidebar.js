@@ -13,7 +13,7 @@ function Sidebar() {
   };
 
   return (
-    <div className="sidebar border-end">
+    <div className="sidebar border-end shadow-sm">
       <ListGroup className="text-black">
         <Link
           to="/"
