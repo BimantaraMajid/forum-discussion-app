@@ -36,3 +36,7 @@ a {
 .avatar-profile {
   margin-top: -70px;
 }
+
+img {
+  background: rgba(0, 0, 0, 0.05);
+}
