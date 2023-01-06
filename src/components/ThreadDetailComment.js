@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   FaRegThumbsDown, FaRegThumbsUp, FaThumbsDown, FaThumbsUp,
 } from 'react-icons/fa';
+import { Button } from 'reactstrap';
 import { postedAt } from '../utils/formatDate';
 import { userShape } from './ThreadDetail';
 
@@ -31,33 +32,49 @@ function ThreadDetailComment({
   };
 
   return (
-    <div className="comment-item">
-      <header className="comment-item__header">
-        <div className="comment-item__owner-info">
-          <img src={owner.avatar} alt="Dimas Saputra" />
-          <p>{owner.name}</p>
+    <div>
+      <header className="d-flex justify-content-between align-items-center">
+        <div className="d-flex align-items-center">
+          <img
+            src={owner.avatar}
+            className="rounded-circle me-2"
+            alt="Dimas Saputra"
+            width="30"
+          />
+          {owner.name}
         </div>
-        <p className="posted-at">{postedAt(createdAt)}</p>
+        <small>{postedAt(createdAt)}</small>
       </header>
-      <p dangerouslySetInnerHTML={{ __html: content }} />
+      <p className="ps-2 pt-2" dangerouslySetInnerHTML={{ __html: content }} />
       <footer>
         {
           upVotesComment && (
-          <button type="button" onClick={onUpVoteClick} className="comment-upvote__button">
+          <Button
+            className="text-decoration-none text-black px-2 py-0"
+            color="link"
+            type="button"
+            onClick={onUpVoteClick}
+          >
             {isCommentUpVote ? <FaThumbsUp style={{ color: 'black' }} /> : <FaRegThumbsUp />}
             {upVotesBy.length}
-          </button>
+          </Button>
           )
         }
         {
           downVotesComment && (
-          <button type="button" onClick={onDownVoteClick} className="comment-downvote__button">
+          <Button
+            className="text-decoration-none text-black px-2 py-0"
+            color="link"
+            type="button"
+            onClick={onDownVoteClick}
+          >
             {isCommentDownVote ? <FaThumbsDown style={{ color: 'black' }} /> : <FaRegThumbsDown />}
             {downVotesBy.length}
-          </button>
+          </Button>
           )
         }
       </footer>
+      <hr />
     </div>
   );
 }

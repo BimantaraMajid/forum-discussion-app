@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { Col, Container, Row } from 'reactstrap';
 import ThreadDetail from '../components/ThreadDetail';
 import ThreadDetailComment from '../components/ThreadDetailComment';
 import ThreadReplyInput from '../components/ThreadReplyInput';
@@ -66,16 +67,18 @@ function DetailPage() {
   }
 
   return (
-    <section className="detail-page">
-      <div className="talk-detail">
-        <ThreadDetail
-          {...threadDetail}
-          authUser={authUser.id}
-          upVotes={onUpVotes}
-          downVotes={onDownVotes}
-        />
-        <ThreadReplyInput replyThread={onReplyThread} />
-        <div className="comments-list">
+    <Container className="p-3">
+      <ThreadDetail
+        {...threadDetail}
+        authUser={authUser.id}
+        upVotes={onUpVotes}
+        downVotes={onDownVotes}
+      />
+      <Row className="pt-3">
+        <Col lg={10}>
+          <ThreadReplyInput replyThread={onReplyThread} />
+        </Col>
+        <Col lg={8} className="offset-lg-1">
           <h3>
             Comments (
             {threadDetail?.comments.length}
@@ -92,9 +95,9 @@ function DetailPage() {
               />
             ))
           }
-        </div>
-      </div>
-    </section>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

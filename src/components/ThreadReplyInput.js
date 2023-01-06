@@ -1,31 +1,34 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Button, FormGroup, Input } from 'reactstrap';
 
 function ThreadReplyInput({ replyThread }) {
   const [text, setText] = useState('');
 
-  function replyThreadHandler() {
+  const replyThreadHandler = () => {
     if (text.trim()) {
       replyThread(text);
       setText('');
     }
-  }
+  };
 
-  function handleTextChange({ target }) {
+  const handleTextChange = ({ target }) => {
     if (target.value.length <= 1000) {
       setText(target.value);
     }
-  }
+  };
 
   return (
-    <div className="thread-reply-input">
-      <textarea type="text" placeholder="Comment Thread" value={text} onChange={handleTextChange} />
-      <p className="thread-reply-input__char-left">
-        <strong>{text.length}</strong>
-        /1000
-      </p>
-      <button type="submit" onClick={replyThreadHandler}>Comment</button>
-    </div>
+    <FormGroup>
+      <Input type="textarea" rows={4} placeholder="Comment Thread" value={text} onChange={handleTextChange} />
+      <div className="d-flex justify-content-between pt-2">
+        <strong>
+          {text.length}
+          /1000
+        </strong>
+        <Button type="submit" onClick={replyThreadHandler} className="text-right">Comment</Button>
+      </div>
+    </FormGroup>
   );
 }
 
