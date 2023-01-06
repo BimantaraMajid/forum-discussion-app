@@ -1,9 +1,7 @@
-import React from 'react';
-import { IoHome } from 'react-icons/io5';
-
 describe('Login spec', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/');
+    // cy.visit('https://forum-discussion-app.vercel.app/');
   });
 
   it('should display login page correctly', () => {
