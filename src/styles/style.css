@@ -1,6 +1,7 @@
 .min-h-screen {
   min-height: 100vh;
 }
+
 .align-item-center {
   align-items: center;
 }
@@ -39,4 +40,20 @@ a {
 
 img {
   background: rgba(0, 0, 0, 0.05);
+}
+
+.filter-tag {
+  gap: 5px;
+}
+
+.new-thread-button {
+  background-color: initial;
+  border: 0;
+  bottom: 32px;
+  color: #2d3e50;
+  color: var(--foreground-color);
+  cursor: pointer;
+  font-size: 48px;
+  position: fixed;
+  right: 32px;
 }

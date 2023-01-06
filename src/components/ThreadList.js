@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Col, Row } from 'reactstrap';
 import ThreadItem, { threadItemShape } from './ThreadItem';
 
 function ThreadList({
@@ -8,18 +9,20 @@ function ThreadList({
   downVotes,
 }) {
   return (
-    <div className="threads-list">
+    <Row>
       {
         threads.map((thread) => (
-          <ThreadItem
-            key={thread.id}
-            {...thread}
-            upVotes={upVotes}
-            downVotes={downVotes}
-          />
+          <Col sm={12} className="py-3 border-bottom">
+            <ThreadItem
+              key={thread.id}
+              {...thread}
+              upVotes={upVotes}
+              downVotes={downVotes}
+            />
+          </Col>
         ))
       }
-    </div>
+    </Row>
   );
 }
 
