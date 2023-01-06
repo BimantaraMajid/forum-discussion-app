@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   FaRegThumbsDown, FaRegThumbsUp, FaThumbsDown, FaThumbsUp,
 } from 'react-icons/fa';
+import { Badge, Button } from 'reactstrap';
 import { postedAt } from '../utils/formatDate';
 
 function ThreadDetail({
@@ -31,48 +32,63 @@ function ThreadDetail({
   };
 
   return (
-    <section className="thread-detail">
+    <section>
       <header>
-        <img src={owner.avatar} alt={owner} />
-        <div className="thread-detail__user-info">
-          <p className="thread-detail__user-name">{title}</p>
-          <p className="thread-detail__user-id">
-            #
-            {category}
-          </p>
-        </div>
+        <span className="d-flex justify-content-between align-item-center">
+          <h3>{ title }</h3>
+          <small>{postedAt(createdAt)}</small>
+        </span>
+        <Badge>
+          #
+          {category}
+        </Badge>
       </header>
-      <article>
-        <p className="thread-detail__text" dangerouslySetInnerHTML={{ __html: body }} />
+      <article className="p-2">
+        <p dangerouslySetInnerHTML={{ __html: body }} />
       </article>
       <footer>
-        <div className="thread-detail__like">
+        <div>
           {
             upVotes && (
               <span>
-                <button type="button" onClick={onUpVoteClick} className="upvote__button">
+                <Button
+                  className="text-decoration-none text-black py-0 px-2"
+                  color="link"
+                  type="button"
+                  onClick={onUpVoteClick}
+                >
                   {isThreadUpVote ? <FaThumbsUp style={{ color: 'black' }} /> : <FaRegThumbsUp />}
                   {upVotesBy.length}
-                </button>
+                </Button>
               </span>
             )
           }
           {
             downVotes && (
               <span>
-                <button type="button" onClick={onDownVoteClick} className="downvote__button">
+                <Button
+                  className="text-decoration-none text-black py-0 px-2"
+                  color="link"
+                  type="button"
+                  onClick={onDownVoteClick}
+                >
                   {isThreadDownVote ? <FaThumbsDown style={{ color: 'black' }} /> : <FaRegThumbsDown />}
                   {downVotesBy.length}
-                </button>
+                </Button>
               </span>
             )
           }
           <span>
             Created By &nbsp;
+            <img
+              className="rounded-circle me-1"
+              src={owner.avatar}
+              alt={owner}
+              width={20}
+            />
             <b>{owner.name}</b>
           </span>
         </div>
-        <p className="thread-detail__created-at">{postedAt(createdAt)}</p>
       </footer>
     </section>
   );

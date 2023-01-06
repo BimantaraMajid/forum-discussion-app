@@ -54,13 +54,22 @@ describe('Login spec', () => {
   it('should display homepage when email and password are correct', () => {
     cy.get('input[placeholder="Email"]').type('majid@gmail.com');
     cy.get('input[placeholder="Password"]').type('qwer1234');
-
     cy.get('button').contains(/^Login$/).click();
 
-    cy.get('nav > a').should('have.length', 2).should('have.attr', 'href');
-    cy.get('.navigation > a').should('have.length', 1).should('have.attr', 'href');
-    cy.get('.navigation > button').should('have.length', 1);
-    // cy.get('nav > a').should('have.attr', 'href')
-    // cy.get('button').contains(<IoHome />).should('be.visible');
+    cy.get('input[type="search"]').type('Pencarian diskusi');
+    cy.get('.sidebar').contains('Home').click();
+    cy.get('.sidebar').contains('Leaderboards').click();
+    cy.get('.sidebar').contains('Profile').click();
+    cy.get('.sidebar').contains('New Thread').click();
+    cy.get('.sidebar').contains('New Thread').click();
+
+    cy.get('input[placeholder="Title"]').type('qwer1234');
+    cy.get('input[placeholder="Category"]').type('qwer1234');
+    cy.get('textarea').type('qwer1234');
+    cy.get('button').contains(/^Save$/).click();
+
+    cy.get('.dropdown').click().then(() => {
+      cy.get('.dropdown').contains('Logout').click();
+    });
   });
 });

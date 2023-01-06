@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Col, Container, Row } from 'reactstrap';
 import LeaderboardsItem from '../components/LeaderboardsItem';
 import { asyncGetLeaderboars } from '../states/leaderboards/action';
 
@@ -15,27 +16,20 @@ function LeaderboardsPage() {
   }, [dispatch]);
 
   return (
-    <section className="home-page">
-      <h3>Most Active User</h3>
-      <div className="threads-list">
-        <div className="thread-item">
-          <div className="thread-item__user-photo">
-            Pengguna
-          </div>
-          <div className="thread-item__detail">
-            <header>
-              <div className="thread-item__user-info" />
-              <p className="thread-item__created-at">Skor</p>
-            </header>
-          </div>
-        </div>
+    <Container className="px-5 py-3">
+      <Row>
+        <Col className="d-flex justify-content-between">
+          <h3>Most Active User</h3>
+          <h5>Score</h5>
+        </Col>
+        <hr />
         {
-        leaderboards.map((leaderboard) => (
-          <LeaderboardsItem key={leaderboard.user.id} leaderboard={leaderboard} />
-        ))
-      }
-      </div>
-    </section>
+          leaderboards.map((leaderboard) => (
+            <LeaderboardsItem key={leaderboard.user.id} leaderboard={leaderboard} />
+          ))
+        }
+      </Row>
+    </Container>
   );
 }
 

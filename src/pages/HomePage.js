@@ -1,5 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import {
+  Button,
+  Col,
+  Container,
+  Row,
+} from 'reactstrap';
 import ButtonAdd from '../components/ButtonAdd';
 import ThreadList from '../components/ThreadList';
 import { receiveTagsActionCreator } from '../states/isFilterTag/action';
@@ -67,34 +73,37 @@ function HomePage() {
   }
 
   const activeClassButton = (isActive) => {
-    if (isActive) return 'category-item selected';
-    return 'category-item';
+    if (isActive) return 'primary';
+    return 'secondary';
   };
 
   return (
-    <section className="home-page">
-      <div className="filter-tag-threads">
-        {
-          isfilter.map((tag) => (
-            <button
-              type="button"
-              className={activeClassButton(tag.isActive)}
-              key={tag.name}
-              value={tag.name}
-              onClick={onFilterTag}
-            >
-              {tag.name}
-            </button>
-          ))
-        }
-      </div>
+    <Container className="px-4 py-3">
+      <Row className="pb-3">
+        <Col className="d-flex filter-tag">
+          {
+            isfilter.map((tag) => (
+              <Button
+                type="button"
+                className="badge"
+                key={tag.name}
+                value={tag.name}
+                onClick={onFilterTag}
+                color={activeClassButton(tag.isActive)}
+              >
+                {tag.name}
+              </Button>
+            ))
+          }
+        </Col>
+      </Row>
       <ThreadList
         threads={threadList}
         upVotes={onUpVotes}
         downVotes={onDownVotes}
       />
       <ButtonAdd />
-    </section>
+    </Container>
   );
 }
 

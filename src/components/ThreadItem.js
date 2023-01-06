@@ -4,6 +4,7 @@ import {
   FaThumbsUp, FaRegThumbsUp, FaThumbsDown, FaRegThumbsDown, FaRegCommentDots,
 } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import { Button } from 'reactstrap';
 import { postedAt } from '../utils/formatDate';
 
 function ThreadItem({
@@ -51,57 +52,67 @@ function ThreadItem({
   };
 
   return (
-    <div className="thread-item">
-      <div className="thread-item__user-photo">
-        <img src={user.avatar} alt="user" />
-      </div>
-      <div className="thread-item__detail">
-        <header>
-          <div className="thread-item__user-info">
-            <button className="thread-item__title" type="button" onClick={onThreadClick} onKeyDown={onThreadPress}>
-              { title }
-            </button>
-            <p className="thread-item__body" dangerouslySetInnerHTML={{ __html: bodySubstring(body) }} />
-          </div>
-          <p className="thread-item__created-at">{postedAt(createdAt)}</p>
-        </header>
-        <article>
-          <p className="thread-item__tag">
-            #
+    <div className="d-flex align-items-start">
+      <img className="rounded-circle" src={user.avatar} alt="user" />
+      <div className="">
+        <Button
+          className="text-decoration-none "
+          color="link"
+          type="button"
+          onClick={onThreadClick}
+          onKeyDown={onThreadPress}
+        >
+          <h3>{ title }</h3>
+        </Button>
+        <div className="ps-2">
+          <p dangerouslySetInnerHTML={{ __html: bodySubstring(body) }} />
+          <small>
+            {postedAt(createdAt)}
+            {' #'}
             { category }
-          </p>
-        </article>
-        <div className="thread-item__likes">
-          {
-            upVotes && (
-              <span>
-                <button type="button" aria-label="like" onClick={onUpVoteClick} className="comment-upvote__button">
-                  {isThreadUpVote ? <FaThumbsUp style={{ color: 'black' }} /> : <FaRegThumbsUp />}
-                  {upVotesBy.length}
-                </button>
-              </span>
-            )
-          }
-          {
-            downVotes && (
-              <span>
-                <button type="button" aria-label="like" onClick={onDownVoteClick} className="comment-downvote__button">
-                  {isThreadDownVote ? <FaThumbsDown style={{ color: 'black' }} /> : <FaRegThumbsDown />}
-                  {downVotesBy.length}
-                </button>
-              </span>
-            )
-          }
-          <span>
-            <button type="button" className="comment-upvote__button">
-              <FaRegCommentDots />
-              { totalComments }
-            </button>
-          </span>
-          <span>
-            Created By &nbsp;
-            <b>{ user.name }</b>
-          </span>
+          </small>
+          <div className="d-flex">
+            {
+              upVotes && (
+                <span>
+                  <Button
+                    className="text-decoration-none text-black px-1 py-0"
+                    type="button"
+                    color="link"
+                    onClick={onUpVoteClick}
+                  >
+                    {isThreadUpVote ? <FaThumbsUp style={{ color: 'black' }} /> : <FaRegThumbsUp />}
+                    {upVotesBy.length}
+                  </Button>
+                </span>
+              )
+            }
+            {
+              downVotes && (
+                <span>
+                  <Button
+                    className="text-decoration-none text-black px-1 py-0"
+                    type="button"
+                    color="link"
+                    onClick={onDownVoteClick}
+                  >
+                    {isThreadDownVote ? <FaThumbsDown style={{ color: 'black' }} /> : <FaRegThumbsDown />}
+                    {downVotesBy.length}
+                  </Button>
+                </span>
+              )
+            }
+            <span>
+              <Button type="button" color="link" className="text-decoration-none text-black px-1 py-0">
+                <FaRegCommentDots />
+                { totalComments }
+              </Button>
+            </span>
+            <span>
+              Created By &nbsp;
+              <b>{ user.name }</b>
+            </span>
+          </div>
         </div>
       </div>
     </div>
