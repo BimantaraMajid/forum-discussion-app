@@ -1,22 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Col } from 'reactstrap';
 import { userShape } from './ThreadItem';
 
 function LeaderboardsItem({ leaderboard }) {
   return (
-    <div className="thread-item align-center">
-      <div className="thread-item__user-photo">
-        <img src={leaderboard.user.avatar} alt="user" />
-      </div>
-      <div className="thread-item__detail">
-        <header>
-          <div className="thread-item__user-info">
-            {leaderboard.user.name}
-          </div>
-          <p className="thread-item__created-at">{leaderboard.score}</p>
-        </header>
-      </div>
-    </div>
+    <Col sm={12} className="d-flex justify-content-between">
+      <h3 className="text-capitalize">
+        <img src={leaderboard.user.avatar} alt="user" className="rounded-circle me-2" />
+        {leaderboard.user.name}
+      </h3>
+      <h5>{leaderboard.score}</h5>
+    </Col>
   );
 }
 
