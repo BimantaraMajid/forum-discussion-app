@@ -6,7 +6,6 @@ import {
   DropdownItem,
   DropdownMenu,
   DropdownToggle,
-  Input,
   Navbar,
   NavbarBrand,
   NavbarText,
