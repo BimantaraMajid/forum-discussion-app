@@ -28,9 +28,6 @@ function Navigation({ authUser, signOut }) {
         </Link>
       </NavbarBrand>
       <NavbarText>
-        <Input type="search" className="search-input rounded-pill bg-light" color="light" placeholder="Search Discussion" />
-      </NavbarText>
-      <NavbarText>
         <Dropdown toggle={toggle} isOpen={dropdownOpen} color="link">
           <DropdownToggle color="link" className="text-decoration-none text-black text-capitalize">
             {name}
