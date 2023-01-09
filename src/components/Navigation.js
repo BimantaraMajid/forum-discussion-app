@@ -6,7 +6,6 @@ import {
   DropdownItem,
   DropdownMenu,
   DropdownToggle,
-  Input,
   Navbar,
   NavbarBrand,
   NavbarText,
@@ -27,9 +26,6 @@ function Navigation({ authUser, signOut }) {
           <img src="/logo.png" alt="brand_logo" height={30} />
         </Link>
       </NavbarBrand>
-      <NavbarText>
-        <Input type="search" className="search-input rounded-pill bg-light" color="light" placeholder="Search Discussion" />
-      </NavbarText>
       <NavbarText>
         <Dropdown toggle={toggle} isOpen={dropdownOpen} color="link">
           <DropdownToggle color="link" className="text-decoration-none text-black text-capitalize">
