@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# Forum Discussion App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ini adalah aplikasi forum diskusi yang hebat yang dibangun dengan menggunakan berbagai teknologi canggih.
 
-## Available Scripts
+## Deskripsi
 
-In the project directory, you can run:
+Aplikasi ini memungkinkan pengguna untuk berpartisipasi dalam berbagai diskusi di forum. Anda dapat membuat topik, menjawab pertanyaan, dan berinteraksi dengan komunitas.
 
-### `npm start`
+## Mulai
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Berikut adalah langkah-langkah untuk memulai proyek ini di lingkungan pengembangan Anda.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Prasyarat
 
-### `npm test`
+Pastikan Anda telah menginstal beberapa prasyarat berikut sebelum memulai:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [Node.js](https://nodejs.org/) - Pastikan Node.js sudah terinstal
+- [npm](https://www.npmjs.com/) - Manajer paket Node.js
 
-### `npm run build`
+### Instalasi
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone repositori ini ke komputer Anda:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```shell
+   git clone https://github.com/username/forum-discussion-app.git
+   
+2. Masuk ke direktori proyek:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```shell
+   cd forum-discussion-app
 
-### `npm run eject`
+4. Instal dependensi:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```shell
+   npm install
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. Untuk menjalankan proyek ini, Anda dapat menggunakan perintah berikut:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```shell
+   npm start
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+6. Anda dapat menjalankan tes dengan menggunakan perintah:
 
-## Learn More
+   ```shell
+   npm test
+   #atau bisa menggunakan end to end testing dengan cypress
+   npm run e2e
+   
+## Kontribusi
+Kami menghargai kontribusi! Jika Anda ingin berkontribusi pada proyek ini, silakan buat Pull Request dengan perubahan Anda.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Lisensi
+Proyek ini dilisensikan di bawah Lisensi MIT.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
